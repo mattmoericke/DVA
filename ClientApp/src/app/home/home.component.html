@@ -1,0 +1,35 @@
+<h1>News Feed</h1>
+<div style="width: 100%; overflow: hidden;">
+  <div style="width: 110px; float: left;"> Category: </div>
+  <div style="margin-left: 110px;">       
+      <select #cboCategory style="width:200px" (change)="topHeadlines(cboCategory.value)" class="form-control" id="cboCategory">        
+        <option>General</option>
+        <option>World</option>
+        <option>Nation</option>
+        <option>Business</option>        
+        <option selected>Technology</option>
+        <option>Entertainment</option> 
+        <option>Sports</option> 
+        <option>Science </option> 
+        <option>Health</option> 
+      </select>
+  </div>
+</div>
+
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="searchResult">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let article of searchResult.newsArticles">
+      <td><img width="60" height="50" src="{{ article.image }}"/></td>
+      <td><a target="_blank" href="{{ article.url }}">{{ article.title }}</a></td>
+      <td>{{ article.description }}</td>   
+    </tr>
+  </tbody>
+</table>

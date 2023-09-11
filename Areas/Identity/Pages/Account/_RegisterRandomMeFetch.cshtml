@@ -1,0 +1,20 @@
+﻿<script>
+    $(document).ready(function () {
+        $('#btnFetchName').click(function () {
+            $.ajax({
+                url: 'https://api.randomuser.me/',
+                dataType: 'json',
+                success: function (data) {
+                    var r = data.results[0];
+                    console.log(r.email);
+                    console.log(r.login.password);
+                    $("#Input_FirstName").val(r.name.first);
+                    $("#Input_LastName").val(r.name.last);
+                    $("#Input_Email").val(r.email);
+                    $("#Input_Password").val(r.login.password);
+                    $("#Input_ConfirmPassword").val(r.login.password);
+                }
+            });
+        });
+    })
+</script>

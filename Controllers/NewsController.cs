@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DVA.Controllers
 {
-    [Authorize]
+    
     [ApiController]
     [Route("[controller]/[action]")]
     public class NewsController : ControllerBase
@@ -23,6 +23,7 @@ namespace DVA.Controllers
             _logger = logger;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<NewsProviderResponse>> Search(string searchPhrase)
         {
